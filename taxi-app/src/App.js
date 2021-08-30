@@ -1,19 +1,15 @@
-import React from "react"
-import "tailwindcss/dist/base.css";
-import "styles/globalStyles.css";
-import { css } from "styled-components/macro";
-
-import HomePage from "pages/HomePage.js";
-
-import ComponentRenderer from "ComponentRenderer.js";
-
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import React from 'react';
+import GlobalStyle from './globalStyles';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {Navbar} from './components';
 
 function App() {
   return (
-    <div className="App">
-      <HomePage/>
-    </div>
+    <Router>
+      <GlobalStyle/>
+      <Navbar/>
+      <Switch></Switch>
+    </Router>
   );
 }
 
