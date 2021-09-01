@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Container, Button, SharedStyles } from '../../globalStyles';
+import { SharedStyles } from '../../globalStyles';
 import BgImg from '../../assets/bg-image.svg';
 
 export const Section = styled.section`
