@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container } from '../../globalStyles';
 
 export const Nav = styled.nav`
-  background: #41cc72;
+  background: #276926;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -67,7 +67,7 @@ text-align: center;
   left: ${({click}) => (click ? 0 : '-100%')};
   opacity: 1;
   transition: all 0.5s ease;
-  background: #41cc72;
+  background: #276926;
 }
 `;
 

@@ -1,11 +1,11 @@
-import styled, {createGlobalStyle} from 'styled-components'
+import styled, {createGlobalStyle, css} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
 * {
   box-sizing:border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 `;
 
@@ -44,6 +44,16 @@ cursor: pointer;
 @media screen and (max-width: 960px) {
   width: 100%;
 }
+`;
+
+export const SharedStyles = css`
+  background-color: #eee;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 10px 0 20px 0;
+  padding: 20px;
+  box-sizing: border-box;
 `;
 
 export default GlobalStyle
