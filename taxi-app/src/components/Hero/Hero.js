@@ -49,11 +49,13 @@ const Hero = () => {
                   <StyledInput
                    type="text"
                     name="origin"
+                    placeholder="Enter the pickup address"
                   />
                   <FormLabel>Destination Address</FormLabel>
                   <StyledInput
                     type="text"
                     name="destination"
+                    placeholder="Enter the destination address"
                     />
                   <FormButton>Book Taxi</FormButton>
                 </StyledForm>

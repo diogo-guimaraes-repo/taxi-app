@@ -8,6 +8,10 @@ export const Section = styled.section`
   width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+  }
 `;
 
 export const SectionOverlay = styled.div`
@@ -15,6 +19,10 @@ export const SectionOverlay = styled.div`
     background-color: rgba(0, 0, 0, 0.41);
     height: 70vh;
     width: 100%;
+
+    @media screen and (max-width: 768px) {
+      height: 100vh;
+  }
 `;
 
 export const HeroRow = styled.div`
@@ -63,6 +71,11 @@ export const StyledForm = styled.form`
 export const StyledInput = styled.input`
   display: block;
   width: 100%;
+
+  &::placeholder {
+    color: #242424;
+  }
+
   ${SharedStyles}
 `;
 

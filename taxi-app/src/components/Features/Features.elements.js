@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const FeaturesContainer = styled.div`
-  height: 600px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,11 +10,11 @@ export const FeaturesContainer = styled.div`
   background: #65944a;
 
   @media screen and (max-width: 768px) {
-    height: 1100px;
+    height: 1500px;
   }
 
   @media screen and (max-width: 480px) {
-    height: 1300px;
+    height: 1700px;
   }
 `;
 
@@ -66,17 +66,10 @@ export const FeaturesH1 = styled.h1`
   font-size: 5rem;
   color: #fff;
   margin-bottom: 64px;
-
-  @media screen and (max-width: 1000px) {
-    margin-top: 500px;
-  }
-
-  @media screen and (max-width: 768px) {
-    margin-top: 800px;
-  }
+  text-align: center;
 
   @media screen and (max-width: 480px) {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 `;
 
