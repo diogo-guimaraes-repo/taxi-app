@@ -68,7 +68,7 @@ function Footer() {
             <SocialIcon/>
             TAXIRICARDO
           </SocialLogo>
-          <WebsiteRights>DG2 @ 2020</WebsiteRights>
+          <WebsiteRights>DG2 @ 2021</WebsiteRights>
           <SocialIcons>
           <SocialIconLink href='/' target='_blank' aria-label='Facebook'>
               <FaFacebook />
