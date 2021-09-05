@@ -56,4 +56,67 @@ export const SharedStyles = css`
   box-sizing: border-box;
 `;
 
+export const StyledForm = styled.form`
+  width: 100%;
+  max-width: 700px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+`;
+
+export const StyledInput = styled.input`
+  display: block;
+  width: 100%;
+
+  &:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+  }
+
+  &::placeholder {
+    color: #242424;
+  }
+
+  ${SharedStyles}
+`;
+
+export const FormHeading = styled.h2`
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #276926;
+`;
+
+export const FormLabel = styled.label`
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #276926;
+`
+
+export const FormButton = styled.button`
+border-radius: 4px;
+background: #276926;
+white-space: nowrap;
+padding: 12px 61px;
+color: #fff;
+font-size: 1rem;
+font-weight: 600;
+width: 100%;
+font-size: '20px';
+outline: none;
+border: none;
+cursor: pointer;
+
+&:hover {
+  transition: all 0.3s ease-out;
+  background: #fff;
+  background: #0467FB;
+}
+`;
+
 export default GlobalStyle
