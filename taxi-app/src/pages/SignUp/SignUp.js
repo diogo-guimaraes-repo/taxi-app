@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyledInput,
-  FormLabel,
   FormButton,
   FormHeading
 } from '../../globalStyles';
@@ -19,22 +18,44 @@ import {
   SocialWrapper,
   SocialButton,
   TermsText,
-  TextLink
+  TextLink,
+  ErrorText
 } from './SignUp.elements';
 
-const SignUp = () => {
+import { useForm } from 'react-hook-form';
+import { useRegisterMutation } from '../../network/registerMutation';
+
+const SignUp = ({loading}) => {
+const {register, handleSubmit} = useForm();
+const [registerMutation, registerMutationResults] = useRegisterMutation();
+const disableForm = registerMutationResults.loading || loading;
+const onSubmit = (values) => registerMutation(values.email,
+                                              values.password,
+                                              values.firstname,
+                                              values.lastname,
+                                              values.phonenumber);
+
   return (
     <>
       <SignUpContainer>
-
         <FormWrap>
           <SignUpIcon to="/">TAXIRICARDO</SignUpIcon>
           <SignUpFormContent>
-            <SignUpForm action="#">
+            <SignUpForm onSubmit={handleSubmit(onSubmit)}>
               <FormHeading>Create your account</FormHeading>
-              <StyledInput type='email' placeholder="Email" required />
-              <StyledInput type='password' placeholder="Password" required />
-              <FormButton type='submit'>Register</FormButton>
+              <StyledInput type='text' name="firstname" placeholder="First Name" {...register('firstname')} required />
+              <StyledInput type='text' name="lastname" placeholder="Last Name" {...register('lastname')} required />
+              <StyledInput type='email' name="email" placeholder="Email" {...register('email')} required />
+              {registerMutationResults?.data?.register?.errors?.username && <ErrorText>This e-mail already exists.</ErrorText>}
+              <StyledInput type='tel' name="phonenumber" placeholder="Phone Number" {...register('phonenumber')} patern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" required />
+              {registerMutationResults?.data?.register?.errors?.phoneNumber && <ErrorText>
+                                                                                  {registerMutationResults?.data?.register?.errors?.phoneNumber[0]["message"]}
+                                                                                </ErrorText>}
+              <StyledInput type='password' name="password" placeholder="Password" {...register('password')} required />
+              {registerMutationResults?.data?.register?.errors?.password2 && <ErrorText>
+                                                                                {registerMutationResults?.data?.register?.errors?.password2[0]["message"]}
+                                                                              </ErrorText>}
+              <FormButton type='submit' disabled={disableForm}>Register</FormButton>
               <Separator><StyledB>or</StyledB></Separator>
               <Text>Sign Up with your social media account</Text>
               <SocialWrapper>
@@ -43,7 +64,9 @@ const SignUp = () => {
               </SocialWrapper>
               <TermsText>I agree to TAXIRICARDO
                 <TextLink> Terms of Service</TextLink> and
-                <TextLink> Privacy Policy</TextLink>.</TermsText>
+                <TextLink> Privacy Policy</TextLink>.
+              </TermsText>
+              <Text>Already have an account? <TextLink to="/sign-in"> Sign In</TextLink>.</Text>
             </SignUpForm>
           </SignUpFormContent>
         </FormWrap>

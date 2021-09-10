@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom';
 export const SignUpContainer = styled.div`
   min-height: 692px;
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   right: 0;
   top: 0;
   z-index: 0;
-  overflow: hidden;
   background: linear-gradient(
     108deg,
     rgba(1, 147, 86, 1) 0%,
@@ -56,11 +55,16 @@ export const SignUpFormContent = styled.div`
 `;
 
 export const SignUpForm = styled.form`
+  -webkit-scrollbar: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
   background: #fff;
   max-width: 400px;
   height: auto;
   width: 100%;
   z-index: 1;
+  overflow-y: scroll;
   display: grid;
   margin: 0 auto;
   padding: 40px 32px;
@@ -112,7 +116,8 @@ export const Text = styled.span`
 
 export const TermsText = styled.span`
   text-align: center;
-  margin-top: 50px;
+  margin-top: 25px;
+  margin-bottom: 10px;
   color: #242424;
   font-size: 11px;
 `;
@@ -165,4 +170,8 @@ export const StyledB = styled.b`
 export const TextLink = styled(Link)`
   color: #03d3fc;
   text-decoration: none;
+`;
+
+export const ErrorText = styled.p`
+  color: #d8000c;
 `;
