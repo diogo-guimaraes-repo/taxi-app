@@ -20,10 +20,9 @@ const authMiddleware = (authToken) =>
   return forward(operation);
 });
 
-const cache = new InMemoryCache({});
-
 export const useAppApolloClient = () => {
   const [authToken] = useAuthToken();
+  const cache = new InMemoryCache().restore({})
   return new ApolloClient({
     link: authMiddleware(authToken).concat(httpLink),
     cache,

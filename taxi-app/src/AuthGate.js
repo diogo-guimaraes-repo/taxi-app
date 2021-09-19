@@ -9,8 +9,8 @@ const AuthGate = () => {
   const [authToken] = useAuthToken();
   const userData = useUserQuery();
 
-  if(userData.data && authToken) {
-    return <AuthenticatedApp/>
+  if(userData.data?.me && authToken) {
+    return <AuthenticatedApp/>;
   }
   return <UnauthenticatedApp loading={userData.loading}/>;
 }

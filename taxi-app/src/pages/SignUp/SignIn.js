@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import {
   StyledInput,
   FormButton,
@@ -32,6 +33,11 @@ const SignIn = ({loading}) => {
   const disableForm = loginMutationResults.loading || loading;
   const onSubmit = (values) => loginMutation(values.email, values.password);
 
+  if(loginMutationResults?.data?.tokenAuth?.success)
+  {
+   return <Redirect to='/home'/>
+  }
+
   return (
     <>
       <SignUpContainer>
@@ -41,10 +47,9 @@ const SignIn = ({loading}) => {
             <SignUpForm onSubmit={handleSubmit(onSubmit)}>
               <FormHeading>Log in to your account</FormHeading>
               <StyledInput type='email' name="email" placeholder="Email" {...register('email')} required />
-              {loginMutationResults?.data?.register?.errors?.email && <ErrorText>This e-mail already exists.</ErrorText>}
               <StyledInput type='password' name="password" placeholder="Password" {...register('password')} required />
-              {loginMutationResults?.data?.register?.errors?.password && <ErrorText>
-                                                                                  {loginMutationResults?.data?.register?.errors?.phoneNumber[0]["message"]}
+              {loginMutationResults?.data?.tokenAuth?.errors?.nonFieldErrors && <ErrorText>
+                                                                                  {loginMutationResults?.data?.tokenAuth?.errors?.nonFieldErrors[0]["message"]}
                                                                          </ErrorText>}
               <FormButton type='submit' disabled={disableForm}>Login</FormButton>
               <Separator><StyledB>or</StyledB></Separator>

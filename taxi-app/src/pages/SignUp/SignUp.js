@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import {
   StyledInput,
   FormButton,
@@ -34,6 +35,11 @@ const onSubmit = (values) => registerMutation(values.email,
                                               values.firstname,
                                               values.lastname,
                                               values.phonenumber);
+
+  if(registerMutationResults?.data?.register?.success)
+  {
+   return <Redirect to='/home'/>
+  }
 
   return (
     <>
