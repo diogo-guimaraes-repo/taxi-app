@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Button } from '../../globalStyles';
+import { Container, Button,
+  StyledForm,
+  StyledInput,
+  FormLabel,
+  FormButton,
+  FormHeading
+} from '../../globalStyles';
+
 import {
   Section,
   SectionOverlay,
   HeroRow,
   HeroColumn,
   StyledFormWrapper,
-  StyledForm,
-  StyledInput,
-  FormLabel,
-  FormButton,
-  FormHeading,
   HeaderWrapper,
   HeaderBackground,
   Heading,
