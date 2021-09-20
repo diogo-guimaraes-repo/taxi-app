@@ -4,6 +4,8 @@ import Home from './pages/HomePage/Home';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignUp/SignIn';
 import PasswordReset from './pages/SignUp/PasswordReset';
+import DefinePassword from './pages/SignUp/DefinePassword';
+import VerifyAccount from './pages/SignUp/VerifyAccount';
 import ScrollToTop from './components/ScrollToTop';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Footer, Navbar} from './components';
@@ -19,6 +21,8 @@ function UnauthenticatedApp({loading}) {
         <Route path='/sign-up' render={props => <SignUp loading={loading}/>}/>
         <Route path='/sign-in' render={props => <SignIn loading={loading}/>}/>
         <Route path='/password-reset' exact component={PasswordReset}/>
+        <Route path='/define-password/:reset_token' exact component={DefinePassword}/>
+        <Route path='/activate/:verification_token' exact component={VerifyAccount}/>
       </Switch>
       <Footer/>
     </Router>
