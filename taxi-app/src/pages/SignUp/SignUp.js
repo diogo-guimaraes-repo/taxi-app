@@ -38,7 +38,24 @@ const onSubmit = (values) => registerMutation(values.email,
 
   if(registerMutationResults?.data?.register?.success)
   {
-   return <Redirect to='/home'/>
+    return (
+      <>
+        <SignUpContainer>
+          <FormWrap>
+            <SignUpIcon to="/">TAXIRICARDO</SignUpIcon>
+            <SignUpFormContent>
+              <SignUpForm action="#">
+                <FormHeading>Thank you for your registration!</FormHeading>
+                <Text>We've sent you an e-mail so that you can verify your account. Don't forget to check your spam folder!</Text>
+                <TermsText>
+                  <TextLink to="/sign-in">Return to Log In</TextLink>.
+                </TermsText>
+              </SignUpForm>
+            </SignUpFormContent>
+          </FormWrap>
+        </SignUpContainer>
+      </>
+    );
   }
 
   return (
