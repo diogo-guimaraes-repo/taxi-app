@@ -47,6 +47,13 @@ export const HeroColumn = styled.div`
   }
 `;
 
+export const HeroSingleColumn = styled(HeroColumn)`
+  max-width: 100%;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+`
+
 export const StyledFormWrapper = styled.div`
   max-width: 540px;
   padding-top: 50px;
@@ -56,6 +63,15 @@ export const StyledFormWrapper = styled.div`
     padding-bottom: 65px;
   }
 `;
+
+export const LargeFormWrapper = styled(StyledFormWrapper)`
+    min-width: 500px;
+
+    @media screen and (max-width: 768px) {
+    padding-bottom: 65px;
+    min-width: 0px;
+  }
+`
 
 export const HeaderWrapper = styled.div`
   max-width: 540px;

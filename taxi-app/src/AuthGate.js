@@ -10,7 +10,7 @@ const AuthGate = () => {
   const userData = useUserQuery();
 
   if(userData.data?.me && authToken) {
-    return <AuthenticatedApp/>;
+    return <AuthenticatedApp user={userData.data.me}/>;
   }
   return <UnauthenticatedApp loading={userData.loading}/>;
 }

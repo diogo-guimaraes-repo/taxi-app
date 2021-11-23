@@ -1,20 +1,18 @@
 import React from 'react';
 import GlobalStyle from './globalStyles';
-import Home from './pages/HomePage/Home';
-import SignUp from './pages/SignUp/SignUp';
-import SignIn from './pages/SignUp/SignIn';
-import PasswordReset from './pages/SignUp/PasswordReset';
+import HomeClient from './pages/HomePage/HomeClient';
 import ScrollToTop from './components/ScrollToTop';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {Footer, Navbar} from './components';
+import {Footer, NavbarUser} from './components';
 
-function AuthenticatedApp() {
+function AuthenticatedApp({user}) {
   return (
     <Router>
       <GlobalStyle/>
       <ScrollToTop/>
+      <NavbarUser user={user}/>
       <Switch>
-        <Route path='/home' exact component={Home}/>
+        <Route path='/home' exact component={HomeClient}/>
       </Switch>
       <Footer/>
     </Router>

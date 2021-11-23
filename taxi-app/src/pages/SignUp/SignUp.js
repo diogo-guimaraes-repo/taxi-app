@@ -79,12 +79,14 @@ const onSubmit = (values) => registerMutation(values.email,
                                                                                 {registerMutationResults?.data?.register?.errors?.password2[0]["message"]}
                                                                               </ErrorText>}
               <FormButton type='submit' disabled={disableForm}>Register</FormButton>
+{/*
               <Separator><StyledB>or</StyledB></Separator>
               <Text>Sign Up with your social media account</Text>
               <SocialWrapper>
                 <SocialButton><FaGoogle/></SocialButton>
                 <SocialButton><FaFacebookF/></SocialButton>
               </SocialWrapper>
+*/}
               <TermsText>I agree to TAXIRICARDO
                 <TextLink> Terms of Service</TextLink> and
                 <TextLink> Privacy Policy</TextLink>.
