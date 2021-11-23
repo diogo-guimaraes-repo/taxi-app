@@ -12,39 +12,18 @@ import {
   Section,
   SectionOverlay,
   HeroRow,
-  HeroColumn,
-  StyledFormWrapper,
-  HeaderWrapper,
-  HeaderBackground,
-  Heading,
-  Subtitle
+  LargeFormWrapper,
+  HeroSingleColumn,
 } from './Hero.elements';
 
-const Hero = () => {
+const HeroClient = () => {
     return (
       <Section>
         <SectionOverlay>
         <Container>
           <HeroRow>
-          <HeroColumn>
-              <HeaderWrapper>
-                <HeaderBackground>
-                  <Heading>
-                    TRAVEL IN CONFORT IN YVERDON-LES-BAINS
-                  </Heading>
-                  <Subtitle>
-                    A very nice taxi service
-                  </Subtitle>
-                  <Link to='/sign-up'>
-                    <FormButton>
-                      Create Your Account
-                    </FormButton>
-                  </Link>
-                </HeaderBackground>
-              </HeaderWrapper>
-            </HeroColumn>
-            <HeroColumn>
-              <StyledFormWrapper>
+            <HeroSingleColumn>
+              <LargeFormWrapper>
                 <StyledForm>
                   <FormHeading>Do you want to book a Taxi?</FormHeading>
                   <FormLabel>Pickup Address</FormLabel>
@@ -63,8 +42,8 @@ const Hero = () => {
                     <FormButton>Book Taxi</FormButton>
                   </Link>
                 </StyledForm>
-              </StyledFormWrapper>
-            </HeroColumn>
+              </LargeFormWrapper>
+            </HeroSingleColumn>
           </HeroRow>
         </Container>
         </SectionOverlay>
@@ -72,4 +51,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroClient;

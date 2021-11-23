@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaMagento } from 'react-icons/fa';
+
 import { Link } from 'react-router-dom';
 import { Container } from '../../globalStyles';
 
@@ -33,8 +33,10 @@ display: flex;
 align-items: center;
 `;
 
-export const NavIcon = styled(FaMagento)`
-margin-right: 0.5rem;
+export const NavIcon = styled.img`
+max-width: 4.5rem;
+margin-top: 0.5rem;
+max-height: 3.5rem;
 `;
 
 export const MobileIcon = styled.div`
@@ -88,6 +90,19 @@ border-bottom: 2px solid transparent;
 }
 `;
 
+export const NavItemMobile = styled(NavItem)`
+  display:none;
+
+@media screen and (max-width: 960px) {
+  display: block;
+  width: 100%;
+
+  &:hover {
+  border: none;
+ }
+}
+`
+
 export const NavLinks = styled(Link)`
 color: #fff;
 display:flex;
@@ -107,6 +122,56 @@ height: 100%;
     transition: all 0.5s ease;
   }
 }
+`
+
+export const NavDropDown = styled.div`
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  right: 15%;
+  box-shadow: 0px 8px 20px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+`
+
+export const NavDropDownBtn = styled.div`
+  color: #fff;
+  display:flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+
+  @media screen and (max-width: 960px) {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+`
+export const DropDown = styled.div`
+  position: relative;
+  display: inline-block;
+
+  &:hover ${NavDropDown} {
+    display: block;
+  }
+
+  @media screen and (max-width: 960px) {
+  display: none;
+}
+`
+
+export const NavDropMenuLink = styled(Link)`
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+
+  &:hover{
+    background-color: #ddd;
+  }
 `
 
 export const NavItemBtn = styled.li`

@@ -52,12 +52,14 @@ const SignIn = ({loading}) => {
                                                                                   {loginMutationResults?.data?.tokenAuth?.errors?.nonFieldErrors[0]["message"]}
                                                                          </ErrorText>}
               <FormButton type='submit' disabled={disableForm}>Login</FormButton>
+{/*
               <Separator><StyledB>or</StyledB></Separator>
               <Text>Log in with your social media account</Text>
               <SocialWrapper>
                 <SocialButton><FaGoogle/></SocialButton>
                 <SocialButton><FaFacebookF/></SocialButton>
               </SocialWrapper>
+*/}
               <TermsText>
                 <TextLink to="/password-reset">Forgot your password?</TextLink>
               </TermsText>
