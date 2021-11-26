@@ -195,3 +195,7 @@ export const NavBtnLink = styled(Link)`
   border: none;
   outline: none;
 `;
+
+export const NavbarSpan = styled.span`
+  margin-left: 16px;
+`;

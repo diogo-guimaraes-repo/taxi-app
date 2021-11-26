@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import Logo from '../../assets/logo.svg';
-import { FaUserCircle, FaTimes } from 'react-icons/fa'
-import { IconContext } from 'react-icons/lib'
+import { FaUserCircle, FaTimes } from 'react-icons/fa';
+import { IconContext } from 'react-icons/lib';
+import { NavClientData } from '../NavigationData/NavClientData';
 import {
   Nav,
   NavbarContainer,
@@ -15,7 +16,8 @@ import {
   NavDropMenuLink,
   NavDropDownBtn,
   DropDown,
-} from './Navbar.elements'
+  NavbarSpan
+} from './Navbar.elements';
 import { useLogout } from '../../config/auth';
 
 
@@ -55,21 +57,16 @@ const NavbarUser = ({user}) => {
             {click ? <FaTimes/> : <FaUserCircle/>}
           </MobileIcon>
           <NavMenu onClick={handleClick} click={click}>
-          <NavItemMobile>
-              <NavLinks to='/requests'>
-                My Requests
-              </NavLinks>
-            </NavItemMobile>
-            <NavItemMobile>
-              <NavLinks to='/wallet'>
-                My Wallet
-              </NavLinks>
-            </NavItemMobile>
-            <NavItemMobile>
-              <NavLinks to='/profile-settings'>
-                Profile Settings
-              </NavLinks>
-            </NavItemMobile>
+            {NavClientData.map((item, index) => {
+              return (
+                <NavItemMobile key={index}>
+                  <NavLinks to={item.path}>
+                    {item.icon}
+                    <NavbarSpan>{item.title}</NavbarSpan>
+                  </NavLinks>
+                </NavItemMobile>
+              );
+            })}
             <NavItemMobile>
               <NavLinks onClick={logout} to='/'>
                 Logout
@@ -80,9 +77,13 @@ const NavbarUser = ({user}) => {
                 {user.firstName}
               </NavDropDownBtn>
               <NavDropDown>
-                <NavDropMenuLink to='/requests'>My Requests</NavDropMenuLink>
-                <NavDropMenuLink to='/wallet'>My Wallet</NavDropMenuLink>
-                <NavDropMenuLink to='/profile-settings'>Profile Settings</NavDropMenuLink>
+                {NavClientData.map((item, index) => {
+                  return (
+                      <NavDropMenuLink to={item.path}>
+                        {item.title}
+                      </NavDropMenuLink>
+                  );
+                })}
                 <NavDropMenuLink onClick={logout} to='/'>Logout</NavDropMenuLink>
               </NavDropDown>
             </DropDown>
@@ -92,6 +93,6 @@ const NavbarUser = ({user}) => {
       </IconContext.Provider>
     </>
   )
-}
+};
 
-export default NavbarUser
+export default NavbarUser;
